@@ -8,7 +8,8 @@ echo "Job name is:  ${env.JOB_NAME}"
 echo "Node name is:  ${env.NODE_NAME}"
 echo "Bulid number is:  ${env.BULID_NUMBER}"
 
-try{}
+
+try{
 stage('CheckoutCode')
 {
 git branch: 'development', credentialsId: 'b06be823-3502-46a1-9a70-172be30e4d1d', url: 'https://github.com/arshaddevops/maven-web-application.git'
@@ -36,7 +37,7 @@ sshagent(['aa1cfc8c-bfd2-4367-9035-aa3902d0a0f2']) {
 }
 }
 */
-}catch (e){
+}catch(e){
 currentBuild.result = "FAILED"
  throw  e
 }
