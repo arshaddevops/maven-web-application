@@ -23,9 +23,7 @@ stage('Bulid')
 sh "${mavenHome}/bin/mvn clean package"
 }
 
-stage('TriggerDownstreamJob'){
-build job: 'pipelinescriptwithbuildparameters'
-}
+
 
 /*    
 stage('ExcuteSonarQubeReport')
@@ -43,6 +41,7 @@ stage('DeployAppTomcatServer')
 sshagent(['aa1cfc8c-bfd2-4367-9035-aa3902d0a0f2']) {
  sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@172.31.41.246:/opt/apache-tomcat-9.0.80/webapps"
 }
+build job: 'pipelinescriptwithbuildparameters'
 }
 */
 }catch(e){
