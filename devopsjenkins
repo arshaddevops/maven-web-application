@@ -22,6 +22,11 @@ stage('Bulid')
 {
 sh "${mavenHome}/bin/mvn clean package"
 }
+
+stage(TriggeerDownstreamJob'){
+bulid job: 'pipelinescriptwithbulidparameters'
+}
+
 /*    
 stage('ExcuteSonarQubeReport')
 {
