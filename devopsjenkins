@@ -23,7 +23,7 @@ stage('Bulid')
 sh "${mavenHome}/bin/mvn clean package"
 }
 
-stage('TriggeerDownstreamJob'){
+stage('TriggerDownstreamJob'){
 bulid job: 'pipelinescriptwithbulidparameters'
 }
 
